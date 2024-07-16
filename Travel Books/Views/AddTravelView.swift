@@ -8,9 +8,10 @@ struct AddTravelView: View {
     @State private var travelDescription = ""
     @State private var rating = 0
     @State private var isSaved = false
+    @State private var rooter = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 VStack(spacing: 20) {
                     PhotosPicker(selection: $photosPickerItem, matching: .any(of: [.images, .videos, .screenshots])) {
@@ -49,26 +50,30 @@ struct AddTravelView: View {
                             .foregroundColor(.blue)
                             .tint(Color.yellow)
                     
-                    HStack(spacing : 20){
+                    HStack(spacing: 20) {
                         Text("Your Rating : ")
                             .font(.title3)
                             .foregroundColor(.gray)
                                 
-                            StarRatingView(rating: $rating)
-                            }
-                
-                        .padding(.horizontal)
+                        StarRatingView(rating: $rating)
+                    }
+                    .padding(.horizontal)
                     
                     Button("Save") {
                         saveTravelItem()
                     }
-                    
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
                     .background(Color.red)
                     .foregroundColor(.white)
                     .cornerRadius(8.0)
                     .padding(.horizontal)
+                    .onChange(of: isSaved) { newValue in
+                        if newValue {
+                            rooter = true
+                        }
+                    }
+                    .background(NavigationLink(destination: HomeView(), isActive: $rooter) { EmptyView() })
                 }
                 .padding(.horizontal)
                 .onChange(of: photosPickerItem) { _ in
@@ -86,7 +91,8 @@ struct AddTravelView: View {
                 }
                 Spacer()
             }
-            .navigationTitle("Add New Travel ").navigationBarTitleDisplayMode(.large)
+            .navigationTitle("Add New Travel")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
     
