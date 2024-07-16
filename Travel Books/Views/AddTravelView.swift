@@ -65,7 +65,7 @@ struct AddTravelView: View {
                     
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .background(Color.purple)
+                    .background(Color.red)
                     .foregroundColor(.white)
                     .cornerRadius(8.0)
                     .padding(.horizontal)

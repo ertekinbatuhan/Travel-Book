@@ -44,6 +44,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0974C0D2C4700C200213087 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C09760092C46D75100339412 /* StarRatingView.swift */,
+				C09760052C46BA6F00339412 /* TabBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C0974C0E2C4700DA00213087 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C09760032C46B88600339412 /* TravelItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C0975FE72C469F7B00339412 = {
 			isa = PBXGroup;
 			children = (
@@ -63,18 +80,14 @@
 		C0975FF22C469F7B00339412 /* Travel Books */ = {
 			isa = PBXGroup;
 			children = (
+				C0974C0E2C4700DA00213087 /* Model */,
+				C0974C0D2C4700C200213087 /* Components */,
 				C09760112C46EA2200339412 /* Views */,
 				C09760102C46EA1C00339412 /* ViewModel */,
 				C097600B2C46D97300339412 /* Extension */,
 				C0975FF32C469F7B00339412 /* Travel_BooksApp.swift */,
-				C0975FF52C469F7B00339412 /* AddTravelView.swift */,
 				C0975FF72C469F7C00339412 /* Assets.xcassets */,
 				C0975FF92C469F7C00339412 /* Preview Content */,
-				C09760012C46B6A400339412 /* HomeView.swift */,
-				C09760032C46B88600339412 /* TravelItem.swift */,
-				C09760052C46BA6F00339412 /* TabBar.swift */,
-				C09760092C46D75100339412 /* StarRatingView.swift */,
-				C097600E2C46E08300339412 /* TravelViewModel.swift */,
 			);
 			path = "Travel Books";
 			sourceTree = "<group>";
@@ -98,6 +111,7 @@
 		C09760102C46EA1C00339412 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C097600E2C46E08300339412 /* TravelViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -105,6 +119,8 @@
 		C09760112C46EA2200339412 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C09760012C46B6A400339412 /* HomeView.swift */,
+				C0975FF52C469F7B00339412 /* AddTravelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
