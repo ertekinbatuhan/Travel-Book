@@ -17,7 +17,7 @@ struct TabBar: View {
             
             AddTravelView().tabItem {
                 
-                Label("Add",systemImage: "plus")
+                Label("Add Travel",systemImage: "plus.circle.fill")
             }
         }
         

@@ -1,10 +1,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject private var viewModel = TravelViewModel()
+    @ObservedObject private var viewModel = TravelViewModel()
+    @State private var searctText = ""
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 ForEach(viewModel.travelItems) { item in
                     VStack(alignment: .leading) {
@@ -30,7 +31,7 @@ struct HomeView: View {
                         HStack {
                             Text(item.title)
                                 .font(.title2.bold())
-                                .foregroundColor(.purple)
+                                .foregroundColor(.red)
                                 .offset(x : 10)
                             
                             Spacer()
@@ -62,8 +63,8 @@ struct HomeView: View {
                         }
                     }
                 }
-            }
-            .navigationTitle("Travel Books")
+            }.searchable(text: $searctText)
+            .navigationTitle("My Travels")
             .onAppear {
                 viewModel.loadTravelItems()
             }
