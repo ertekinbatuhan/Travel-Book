@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TravelItem : Codable , Identifiable{
+struct TravelItem : Codable, Identifiable {
     var id = UUID()
     var title: String
     var description: String

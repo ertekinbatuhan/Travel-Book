@@ -6,9 +6,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(viewModel.travelItems.indices, id: \.self) { index in
-                    let item = viewModel.travelItems[index]
-                    
+                ForEach(viewModel.travelItems) { item in
                     VStack(alignment: .leading) {
                         if let imageData = item.imageData, let uiImage = UIImage(data: imageData) {
                             Image(uiImage: uiImage)
@@ -55,18 +53,20 @@ struct HomeView: View {
                     .padding([.leading, .trailing])
                     .contextMenu {
                         Button(action: {
-                            viewModel.deleteTravelItem(at: IndexSet([index]))
+                            if let index = viewModel.travelItems.firstIndex(where: { $0.id == item.id }) {
+                                viewModel.deleteTravelItem(at: IndexSet([index]))
+                            }
                         }) {
                             Text("Delete")
                             Image(systemName: "trash")
                         }
                     }
                 }
-                .onAppear {
-                    viewModel.loadTravelItems()
-                }
             }
             .navigationTitle("Travel Books")
+            .onAppear {
+                viewModel.loadTravelItems()
+            }
         }
     }
 }

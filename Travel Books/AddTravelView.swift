@@ -91,7 +91,7 @@ struct AddTravelView: View {
     }
     
     func saveTravelItem() {
-        let newItem = TravelItem(title: travelName, description: travelDescription, imageData: image?.jpegData(compressionQuality: 1.0), rating: rating)
+        let newItem = TravelItem(title: travelName, description: travelDescription, imageData: image?.jpegData(compressionQuality: 0.5), rating: rating)
         
         do {
             let encodedData = try JSONEncoder().encode(newItem)
