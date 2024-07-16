@@ -1,28 +1,20 @@
-//
-//  TravelViewModel.swift
-//  Travel Books
-//
-//  Created by Batuhan Berk Ertekin on 16.07.2024.
-//
-
 import Foundation
 import SwiftUI
 
 class TravelViewModel: ObservableObject {
     @Published var travelItems: [TravelItem] = []
+    private let userDefaultsKey = "savedTravelItems"
 
     init() {
         loadTravelItems()
     }
 
     func loadTravelItems() {
-        if let savedItemsData = UserDefaults.standard.array(forKey: "savedTravelItems") as? [Data] {
+        if let savedItemsData = UserDefaults.standard.array(forKey: userDefaultsKey) as? [Data] {
             do {
-                travelItems = try savedItemsData.map { data in
-                    try JSONDecoder().decode(TravelItem.self, from: data)
-                }
+                travelItems = try savedItemsData.map { try JSONDecoder().decode(TravelItem.self, from: $0) }
             } catch {
-                print("Error decoding TravelItem: \(error.localizedDescription)")
+                print("Error decoding\(error.localizedDescription)")
             }
         }
     }
@@ -35,9 +27,10 @@ class TravelViewModel: ObservableObject {
     func saveTravelItems() {
         do {
             let encodedDataArray = try travelItems.map { try JSONEncoder().encode($0) }
-            UserDefaults.standard.set(encodedDataArray, forKey: "savedTravelItems")
+            UserDefaults.standard.set(encodedDataArray, forKey: userDefaultsKey)
         } catch {
-            print("Error encoding TravelItem: \(error.localizedDescription)")
+            print("Error encoding\(error.localizedDescription)")
         }
     }
 }
+
