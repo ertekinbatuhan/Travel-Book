@@ -8,8 +8,7 @@ struct AddTravelView: View {
     @State private var travelDescription = ""
     @State private var rating = 0
     @State private var isSaved = false
-    @State private var rooter = false
-    
+   
     var body: some View {
         NavigationStack {
             VStack {
@@ -59,21 +58,18 @@ struct AddTravelView: View {
                     }
                     .padding(.horizontal)
                     
-                    Button("Save") {
-                        saveTravelItem()
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 50)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(8.0)
-                    .padding(.horizontal)
-                    .onChange(of: isSaved) { newValue in
-                        if newValue {
-                            rooter = true
+                            Button("Save") {
+                            saveTravelItem()
+                         
                         }
-                    }
-                    .background(NavigationLink(destination: HomeView(), isActive: $rooter) { EmptyView() })
+                        
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 50)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(8.0)
+                    .padding(.horizontal)
+
                 }
                 .padding(.horizontal)
                 .onChange(of: photosPickerItem) { _ in
@@ -86,9 +82,9 @@ struct AddTravelView: View {
                         photosPickerItem = nil
                     }
                 }
-                .alert(isPresented: $isSaved) {
-                    Alert(title: Text("Saved"), message: Text("Travel item saved successfully."), dismissButton: .default(Text("OK")))
-                }
+             .alert(isPresented: $isSaved) {
+                 Alert(title: Text("Saved"), message: Text("Travel item saved successfully."), dismissButton: .default(Text("OK")))
+              }
                 Spacer()
             }
             .navigationTitle("Add New Travel")
