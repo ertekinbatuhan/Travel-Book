@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C0974C102C47A4DD00213087 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0974C0F2C47A4DD00213087 /* DateFormatter.swift */; };
+		C0974C122C47B94D00213087 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0974C112C47B94D00213087 /* CustomTabView.swift */; };
 		C0975FF42C469F7B00339412 /* Travel_BooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0975FF32C469F7B00339412 /* Travel_BooksApp.swift */; };
 		C0975FF62C469F7B00339412 /* AddTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0975FF52C469F7B00339412 /* AddTravelView.swift */; };
 		C0975FF82C469F7C00339412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0975FF72C469F7C00339412 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		C0974C0F2C47A4DD00213087 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		C0974C112C47B94D00213087 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		C0975FF02C469F7B00339412 /* Travel Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0975FF32C469F7B00339412 /* Travel_BooksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel_BooksApp.swift; sourceTree = "<group>"; };
 		C0975FF52C469F7B00339412 /* AddTravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			children = (
 				C09760092C46D75100339412 /* StarRatingView.swift */,
 				C09760052C46BA6F00339412 /* TabBar.swift */,
+				C0974C112C47B94D00213087 /* CustomTabView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				C0975FF62C469F7B00339412 /* AddTravelView.swift in Sources */,
 				C0975FF42C469F7B00339412 /* Travel_BooksApp.swift in Sources */,
 				C09760062C46BA7000339412 /* TabBar.swift in Sources */,
+				C0974C122C47B94D00213087 /* CustomTabView.swift in Sources */,
 				C097600A2C46D75100339412 /* StarRatingView.swift in Sources */,
 				C097600D2C46D9A600339412 /* StarButton.swift in Sources */,
 			);
