@@ -34,9 +34,9 @@ struct HomeView: View {
                                     .font(.title2.bold())
                                     .foregroundColor(.red)
                                 
-                                Text(formatDate(item.date))
+                                Text(item.date.formatted())
                                     .font(.title3)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.gray)
                             }
                             .offset(x: 10)
                             
@@ -78,12 +78,7 @@ struct HomeView: View {
         }
     }
     
-    private func formatDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
-        return formatter.string(from: date)
-    }
+  
 }
 
 struct HomeView_Previews: PreviewProvider {

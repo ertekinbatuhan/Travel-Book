@@ -8,6 +8,8 @@ struct AddTravelView: View {
     @State private var travelDescription = ""
     @State private var rating = 0
     @State private var isSaved = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     @State private var selectedDate = Date()
     
     var body: some View {
@@ -18,10 +20,11 @@ struct AddTravelView: View {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(maxWidth: .infinity, maxHeight: 250)
+                            .frame(maxWidth: .infinity, maxHeight: 200)
                             .cornerRadius(10.0)
                             .shadow(radius: 10)
                             .padding(.horizontal, 20)
+                            .clipped()
                     } else {
                         Image(systemName: "photo")
                             .resizable()
@@ -79,6 +82,7 @@ struct AddTravelView: View {
                 .foregroundColor(.white)
                 .cornerRadius(8.0)
                 .padding(.horizontal)
+                .padding(.bottom, 30)
             }
             .padding(.horizontal)
             .onChange(of: photosPickerItem) { _ in
@@ -91,8 +95,11 @@ struct AddTravelView: View {
                     photosPickerItem = nil
                 }
             }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            }
             .alert(isPresented: $isSaved) {
-                Alert(title: Text("Saved"), message: Text("Travel item saved successfully."), dismissButton: .default(Text("OK")))
+                Alert(title: Text("Saved"), message: Text("Travel item saved successfully."), dismissButton: .default(Text("OK"), action: resetFields))
             }
             .navigationTitle("Add New Travel")
             .navigationBarTitleDisplayMode(.large)
@@ -100,7 +107,19 @@ struct AddTravelView: View {
     }
     
     func saveTravelItem() {
-        let newItem = TravelItem(title: travelName, description: travelDescription, imageData: image?.jpegData(compressionQuality: 0.5), rating: rating, date: selectedDate)
+        guard let image = image else {
+            return
+        }
+        
+        guard !travelName.isEmpty else {
+            return
+        }
+        
+        guard !travelDescription.isEmpty else {
+            return
+        }
+        
+        let newItem = TravelItem(title: travelName, description: travelDescription, imageData: image.jpegData(compressionQuality: 0.5), rating: rating, date: selectedDate)
         
         do {
             let encodedData = try JSONEncoder().encode(newItem)
@@ -111,6 +130,15 @@ struct AddTravelView: View {
         } catch {
             print("Error encoding \(error.localizedDescription)")
         }
+    }
+    
+    func resetFields() {
+        image = nil
+        photosPickerItem = nil
+        travelName = ""
+        travelDescription = ""
+        rating = 0
+        selectedDate = Date()
     }
 }
 
