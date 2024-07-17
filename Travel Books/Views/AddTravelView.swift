@@ -22,13 +22,13 @@ struct AddTravelView: View {
                                         .cornerRadius(12.0)
                                         .shadow(radius: 10)
                                 } else {
-                                    Image(systemName: "photo")
+                                    Image("gallery")
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
                                         .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width * 0.70)
                                         .foregroundColor(.gray)
                                         .cornerRadius(12.0)
-                                        .shadow(radius: 10)
+                                      //  .shadow(radius: 10)
                                         .padding(.horizontal)
                                 }
                             }
