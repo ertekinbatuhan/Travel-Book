@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0974C102C47A4DD00213087 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0974C0F2C47A4DD00213087 /* DateFormatter.swift */; };
 		C0975FF42C469F7B00339412 /* Travel_BooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0975FF32C469F7B00339412 /* Travel_BooksApp.swift */; };
 		C0975FF62C469F7B00339412 /* AddTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0975FF52C469F7B00339412 /* AddTravelView.swift */; };
 		C0975FF82C469F7C00339412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0975FF72C469F7C00339412 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C0974C0F2C47A4DD00213087 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		C0975FF02C469F7B00339412 /* Travel Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel Books.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0975FF32C469F7B00339412 /* Travel_BooksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel_BooksApp.swift; sourceTree = "<group>"; };
 		C0975FF52C469F7B00339412 /* AddTravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelView.swift; sourceTree = "<group>"; };
@@ -84,7 +86,7 @@
 				C0974C0D2C4700C200213087 /* Components */,
 				C09760112C46EA2200339412 /* Views */,
 				C09760102C46EA1C00339412 /* ViewModel */,
-				C097600B2C46D97300339412 /* Extension */,
+				C097600B2C46D97300339412 /* Extensions */,
 				C0975FF32C469F7B00339412 /* Travel_BooksApp.swift */,
 				C0975FF72C469F7C00339412 /* Assets.xcassets */,
 				C0975FF92C469F7C00339412 /* Preview Content */,
@@ -100,12 +102,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C097600B2C46D97300339412 /* Extension */ = {
+		C097600B2C46D97300339412 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				C097600C2C46D9A600339412 /* StarButton.swift */,
+				C0974C0F2C47A4DD00213087 /* DateFormatter.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C09760102C46EA1C00339412 /* ViewModel */ = {
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0974C102C47A4DD00213087 /* DateFormatter.swift in Sources */,
 				C09760042C46B88600339412 /* TravelItem.swift in Sources */,
 				C09760022C46B6A400339412 /* HomeView.swift in Sources */,
 				C097600F2C46E08300339412 /* TravelViewModel.swift in Sources */,

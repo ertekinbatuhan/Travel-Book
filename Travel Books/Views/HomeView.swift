@@ -35,7 +35,7 @@ struct HomeView: View {
                                     .foregroundColor(.red)
                                 
                                 Text(item.date.formatted())
-                                    .font(.title3)
+                                    .font(.title3).bold()
                                     .foregroundColor(.gray)
                             }
                             .offset(x: 10)
