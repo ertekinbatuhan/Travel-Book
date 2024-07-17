@@ -7,21 +7,29 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct TabBar: View {
-    var body: some View {
+    
+    @State private var tabSelection = 1
+    
+    var body: some View{
         
-        TabView{
-            HomeView().tabItem {
-                Label("Home",systemImage: "house")
-            }
+        TabView(selection : $tabSelection){
+           
+            HomeView().tag(1)
             
-            AddTravelView().tabItem {
-                
-                Label("Add Travel",systemImage: "plus.circle.fill")
-            }
+            AddTravelView().tag(2)
+            
+         
         }
         
+        .overlay(alignment : .bottom){
+            
+            CustomTabView(tabSelection: $tabSelection)
+        }
     }
+    
 }
 
 #Preview {
