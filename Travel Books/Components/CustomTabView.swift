@@ -47,7 +47,7 @@ struct CustomTabView: View {
             .clipShape(Capsule())
         }
         .padding(.horizontal)
-        .padding(.vertical, 8) // Yatay ve dikey padding ayarı
+        .padding(.vertical, 8) 
     }
 }
 

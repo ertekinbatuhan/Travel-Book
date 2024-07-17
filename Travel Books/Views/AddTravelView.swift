@@ -75,6 +75,7 @@ struct AddTravelView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8.0)
                     .padding(.horizontal)
+                    .padding(.bottom, 20)
                 }
                 .padding()
                 .onChange(of: photosPickerItem) { _ in
