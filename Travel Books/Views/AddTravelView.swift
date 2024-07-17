@@ -8,12 +8,11 @@ struct AddTravelView: View {
   
     var body: some View {
         NavigationStack {
-            
+            GeometryReader { geometry in
+                
             ScrollView{
-                GeometryReader { geometry in
-                   
-                        VStack(spacing: 20) {
-                            PhotosPicker(selection: $photosPickerItem, matching: .any(of: [.images, .videos, .screenshots])) {
+                    VStack(spacing: 20) {
+                        PhotosPicker(selection: $photosPickerItem, matching: .any(of: [.images, .videos, .screenshots])) {
                                 if let image = viewModel.image {
                                     Image(uiImage: image)
                                         .resizable()
@@ -100,7 +99,7 @@ struct AddTravelView: View {
             }
             }
         }
-    }
+}
 
 
 struct AddView_Previews: PreviewProvider {
