@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject private var viewModel = TravelViewModel()
-    @State private var searctText = ""
+    @State private var searchText = ""
 
     var body: some View {
         NavigationStack {
@@ -29,15 +29,21 @@ struct HomeView: View {
                         }
                         
                         HStack {
-                            Text(item.title)
-                                .font(.title2.bold())
-                                .foregroundColor(.red)
-                                .offset(x : 10)
+                            VStack(alignment: .leading) {
+                                Text(item.title)
+                                    .font(.title2.bold())
+                                    .foregroundColor(.red)
+                                
+                                Text(formatDate(item.date))
+                                    .font(.title3)
+                                    .foregroundColor(.black)
+                            }
+                            .offset(x: 10)
                             
                             Spacer()
                             
                             StarRatingView(rating: .constant(item.rating))
-                                .offset(x : -10)
+                                .offset(x: -10)
                         }
                         
                         Text(item.description)
@@ -63,12 +69,20 @@ struct HomeView: View {
                         }
                     }
                 }
-            }.searchable(text: $searctText)
+            }
+            .searchable(text: $searchText)
             .navigationTitle("My Travels")
             .onAppear {
                 viewModel.loadTravelItems()
             }
         }
+    }
+    
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
     }
 }
 

@@ -13,4 +13,5 @@ struct TravelItem : Codable, Identifiable {
     var description: String
     var imageData: Data?
     var rating: Int
+    var date : Date
 }
