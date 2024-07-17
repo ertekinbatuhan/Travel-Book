@@ -3,23 +3,22 @@ import PhotosUI
 
 struct AddTravelView: View {
     
-    @StateObject private var viewModel = TravelViewModel()
+    @ObservedObject private var viewModel = TravelViewModel()
     @State private var photosPickerItem: PhotosPickerItem?
   
     var body: some View {
         NavigationStack {
-            ScrollView {
-                GeometryReader { geometry in
+            GeometryReader { geometry in
+                ScrollView {
                     VStack(spacing: 20) {
                         PhotosPicker(selection: $photosPickerItem, matching: .any(of: [.images, .videos, .screenshots])) {
                             if let image = viewModel.image {
                                 Image(uiImage: image)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(maxWidth: geometry.size.width , maxHeight: geometry.size.width * 0.60)
+                                    .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width * 0.60)
                                     .cornerRadius(12.0)
                                     .shadow(radius: 10)
-                                    
                             } else {
                                 Image(systemName: "photo")
                                     .resizable()
@@ -94,7 +93,7 @@ struct AddTravelView: View {
                         Alert(title: Text("Saved"), message: Text("Travel item saved successfully."), dismissButton: .default(Text("OK"), action: viewModel.resetFields))
                     }
                     .navigationTitle("Add New Travel")
-                .navigationBarTitleDisplayMode(.large)
+                    .navigationBarTitleDisplayMode(.large)
                 }
             }
         }
