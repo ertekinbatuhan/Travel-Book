@@ -5,7 +5,6 @@ class TravelViewModel: ObservableObject {
     
     @Published var travelItems: [TravelItem] = []
     private let userDefaultsKey = "savedTravelItems"
-    
     @Published var image: UIImage?
     @Published var travelName = ""
     @Published var travelDescription = ""

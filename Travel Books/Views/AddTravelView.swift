@@ -17,7 +17,8 @@ struct AddTravelView: View {
                                     Image(uiImage: image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
-                                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width * 0.60)
+                                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width)
+                                        .clipped()
                                         .cornerRadius(12.0)
                                         .shadow(radius: 10)
                                 } else {
@@ -102,9 +103,6 @@ struct AddTravelView: View {
 }
 
 
-struct AddView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddTravelView()
-    }
+#Preview {
+    AddTravelView()
 }
-
