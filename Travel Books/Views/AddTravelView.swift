@@ -31,7 +31,7 @@ struct AddTravelView: View {
                                         .cornerRadius(12.0)
                                         .padding(.horizontal)
                                 } else {
-                                    Image(systemName : "photo")
+                                    Image("gallery")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width * 0.6)
