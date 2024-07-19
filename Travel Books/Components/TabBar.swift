@@ -18,5 +18,9 @@ struct TabBar: View {
     }
 }
 
+#Preview {
+    TabBar()
+}
+
 
 

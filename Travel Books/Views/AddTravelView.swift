@@ -11,13 +11,13 @@ struct AddTravelView: View {
         NavigationStack {
             GeometryReader { geometry in
                 ScrollView {
-                    VStack(spacing: 20) {
+                    VStack(spacing: 15) {
                         PhotosPicker(selection: $photosPickerItem, matching: .any(of: [.images, .videos, .screenshots])) {
                             if let image = viewModel.image {
                                 Image(uiImage: image)
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width)
+                                    .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width * 0.6)
                                     .clipped()
                                     .cornerRadius(12.0)
                                     .shadow(radius: 10)
@@ -25,16 +25,16 @@ struct AddTravelView: View {
                                 if colorScheme == .dark {
                                     Image(systemName: "photo")
                                         .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width * 0.70)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width * 0.6)
                                         .foregroundColor(.gray)
                                         .cornerRadius(12.0)
                                         .padding(.horizontal)
                                 } else {
-                                    Image("gallery")
+                                    Image(systemName : "photo")
                                         .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width * 0.70)
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.width * 0.6)
                                         .cornerRadius(12.0)
                                         .padding(.horizontal)
                                 }
@@ -48,13 +48,21 @@ struct AddTravelView: View {
                             .cornerRadius(8.0)
                             .foregroundColor(.blue)
 
-                        TextField("Enter Travel Description", text: $viewModel.travelDescription)
+                    /*    TextField("Enter Travel Description", text: $viewModel.travelDescription)
                             .padding()
                             .background(Color.gray.opacity(0.15))
                             .cornerRadius(12)
                             .foregroundColor(.blue)
                             .lineLimit(nil)
                             .tint(Color.yellow)
+                     */
+                        TextEditor(text: $viewModel.travelDescription)
+                            .scrollContentBackground(.hidden)
+                            .frame(height: 120)
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(8.0)
+                            .foregroundColor(.blue)
 
                         VStack(spacing: 20) {
                             HStack {
@@ -103,7 +111,7 @@ struct AddTravelView: View {
                         Alert(title: Text("Saved"), message: Text("Travel item saved successfully."), dismissButton: .default(Text("OK"), action: viewModel.resetFields))
                     }
                     .navigationTitle("Add New Travel")
-                    .navigationBarTitleDisplayMode(.large)
+                    .navigationBarTitleDisplayMode(.inline)
                 }
             }
         }
